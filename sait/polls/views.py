@@ -6,20 +6,20 @@ from menu.models import Menu
 
 
 def index(request):
-    menus = Menu.objects.all()
+    menus = Menu.objects.all().order_by('order')
     latest_question_list = Question.objects.order_by('-date_pub')[:5]
     contex = {'question_list': latest_question_list, 'menus': menus}
     return render(request, 'polls/index.html', contex)
 
 
 def detail(request, question_id):
-    menus = Menu.objects.all()
+    menus = Menu.objects.all().order_by('order')
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/detail.html', {'question': question, 'menus': menus})
 
 
 def vote(request, question_id):
-    menus = Menu.objects.all()
+    menus = Menu.objects.all().order_by('order')
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
@@ -33,6 +33,6 @@ def vote(request, question_id):
 
 
 def results(request, question_id):
-    menus = Menu.objects.all()
+    menus = Menu.objects.all().order_by('order')
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/results.html', {'question': question, 'menus': menus})

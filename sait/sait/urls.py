@@ -8,5 +8,6 @@ urlpatterns = [
     path('news/', include('news.urls')),
     path('main/', include('menu.urls')),
     path('', include('menu.urls')),
-    path('polls/', include('polls.urls'))
+    path('polls/', include('polls.urls')),
+    path('relog/', include('relog.urls'))
 ]

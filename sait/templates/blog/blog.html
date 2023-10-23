@@ -22,17 +22,17 @@
 <br>
     {% for blog in blogs %}
         <div class="py-5 text-center">
-           <h3>{{ blog.username }}</h3>
+            <h5>{{ blog.username }}: {{ blog.date }}</h5>
            <p>{{ blog.body }}</p>
-           <p>{{ blog.date }}</p>
+
               <form action="/blogs/delete/{{blog.id}}/" method = "post">{% csrf_token %}
                 <input type="submit" class="btn btn-primary rounded-pill px-3" value="Удалить">
              </form>
 
+        </div>
 
-       </div>
     {% empty %}
-       <p>No comments yet.</p>
+        <p class="text-center font-monospace"  >No comments yet.</p>
     {% endfor %}
 
 </body>

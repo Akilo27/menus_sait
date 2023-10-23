@@ -20,7 +20,11 @@ def delete_blog(request, i):
 
 def create_blog(request):
     menus = Menu.objects.all().order_by('order')
-    if request.method == 'POST':
+
+    # Проверка выполняется ли POST, а также проверка на написание полей
+    username = request.POST.get('username')
+    if request.method == 'POST' and request.POST.get('username') != '' and request.POST.get('body') != '':
+        # Добавление body и username в БД
         username = request.POST.get('username')
         body = request.POST.get('body')
         Blog.objects.create(username=username, body=body)

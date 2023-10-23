@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'blog',
     'news',
     'polls',
+    'relog',
 ]
 
 MIDDLEWARE = [

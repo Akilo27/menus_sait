@@ -4,7 +4,7 @@ import requests
 
 
 def news(request):
-    menus = Menu.objects.all()
+    menus = Menu.objects.all().order_by('order')
     url = 'https://newsapi.org/v2/everything?q=tesla&from=2023-09-22&sortBy=publishedAt&apiKey=1dc50907bfcd45cba46078deb6b21e4d'
 
     response = requests.get(url)
