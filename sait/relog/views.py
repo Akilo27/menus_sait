@@ -37,21 +37,18 @@ def signup(request):
 
 def login(request):
     menus = Menu.objects.all().order_by('order')
-    users = User.objects.all()
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
             auth_login(request, user)
-            return redirect('profile', name=username)
+            return redirect(f'/relog/profile/{username}/', username=username)
         else:
             messages.error(request, 'Invalid username or password')
             return redirect('login')
     else:
-        print(users)
-        return render(request, 'relog/login.html', {'menus': menus, 'users': users})
+        return render(request, 'relog/login.html', {'menus': menus})
 
 
 @login_required
@@ -64,5 +61,4 @@ def logout(request):
 def profile(request, username):
     username = User.objects.get(username=username)
     menus = Menu.objects.all().order_by('order')
-
     return render(request, 'relog/profile.html', {'user': username, 'menus': menus})

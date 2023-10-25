@@ -17,23 +17,23 @@
 
 
 <div class="py-5 text-center">
-	<form action="/relog/login/">
-    <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+	<form method="post"> {% csrf_token %}
+    <img class="mb-4" src="https://sun9-9.userapi.com/s/v1/if1/dCjdxv4mxCaJOcgTgDbmwQIn3Drb-oirF_4oUIaZ3J1Xx7igKi966TEyIwL-3WFFqdya1-PQ.jpg?size=200x200&quality=96&crop=0,0,512,512&ava=1" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Регистрация</h1>
 
     <div class="form-floating">
-      <input type="username" class="form-control" id="floatingInput" placeholder="username">
+      <input type="text" class="form-control" id="floatingInput" name="username" placeholder="username">
       <label for="floatingInput">Имя</label>
     </div>
 
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
       <label for="floatingPassword">Пароль</label>
     </div>
 
 
 	<div class="form-floating">
-      <input type="confirm_password" class="form-control" id="floatingPassword" placeholder="confirm_password">
+      <input type="password" class="form-control" id="floatingPassword" name="confirm_password" placeholder="confirm_password">
       <label for="floatingPassword">Подтвердите пароль</label>
     </div>
 

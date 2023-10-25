@@ -3,7 +3,6 @@
 <head>
 	<title>Вход</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <script type="text/javascript" charset="utf-8" id="zm-extension" src="chrome-extension://cnhbkkedmelfmalgjpkngiaoifpdfcnl/scripts/webrtc-patch.js" async=""></script>
 </head>
 <body>
 
@@ -24,18 +23,17 @@
 
 
 <div class="py-5 text-center">
-
-	<form action="/relog/profile/{{ users.username }}/">
-    <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+	<form method="post"> {% csrf_token %}
+    <img class="mb-4" src="https://sun9-9.userapi.com/s/v1/if1/dCjdxv4mxCaJOcgTgDbmwQIn3Drb-oirF_4oUIaZ3J1Xx7igKi966TEyIwL-3WFFqdya1-PQ.jpg?size=200x200&quality=96&crop=0,0,512,512&ava=1" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
-      <input type="username" class="form-control" id="floatingInput" placeholder="username">
+      <input type="text" class="form-control" id="floatingInput" name="username" placeholder="username">
       <label for="floatingInput">Username</label>
     </div>
 
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
 

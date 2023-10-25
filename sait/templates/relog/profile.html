@@ -17,12 +17,12 @@
 
 
 
-{% csrf_token %}
+
 
 <div class="py-5 text-center">
 	<h1>Профиль</h1>
 	<p>Добро пожаловать, {{ user.username }}!</p>
-	<p>Email: {{ user.email }}</p>
+	<p>С нами с : {{ user.date_joined }}</p>
 
 	<a href="/relog/logout">Выйти</a>
 </div>
