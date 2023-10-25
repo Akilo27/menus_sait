@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from menu.models import Menu
 import requests
-from PIL import Image
-import  io
+
 def news(request):
     menus = Menu.objects.all().order_by('order')
-    url = 'https://newsapi.org/v2/everything?q=tesla&from=2023-09-24&sortBy=publishedAt&apiKey=1dc50907bfcd45cba46078deb6b21e4d'
+    url = 'https://newsapi.org/v2/everything?q=tesla&from=2023-09-25&sortBy=publishedAt&apiKey=1dc50907bfcd45cba46078deb6b21e4d'
 
     response = requests.get(url)
     print(response)
